@@ -1,0 +1,109 @@
+:root{
+    --primarybg : #191e24;
+    --heading_font: 'Rowdies';
+    --content_font: 'Cabin';
+    --white : #EEEEEE;
+    --grey : #828A95;
+    --accent : #BECEF9;
+    --script : 'Tangerine'
+}
+*{
+    border: none;
+    padding: none;
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+    color: white;
+    user-select: none;
+}
+
+/* Common Elements */
+heading{
+    font-family: var(--heading_font);
+    font-size: 20pt;
+}
+body{
+    background-color: var(--primarybg);
+    
+}
+header{
+    height: 5em;
+    
+}
+logo{
+    font-family: var(--heading_font);
+    font-size: 18pt;
+    color: var(--white)
+    }
+nav-bar a{
+    font: var(--content_font);
+    font-size: 8pt;
+    font-weight: 400;
+    color: var(--grey);
+    padding: 8px;
+
+    transition: all 0.2s ease-out;
+}
+nav-bar a:hover{
+    color: var(--white);
+    border-bottom: 1px solid #EEEEEEAA;
+    font-weight: 500;
+    
+    border-radius: 10px;
+}
+user a{
+    border: 1px solid #EEEEEEAA;
+    padding: 0.4em 1.2em;
+    border-radius: 25px;
+    color: var(--grey);
+    transition: all 0.2s ease-out;
+    font-weight: 700;
+
+
+}
+user a:hover:hover{
+    background-color: var(--white);
+    color: var(--primarybg);
+    
+}
+user button:active:active{
+    transform: translate(1px,1px);
+}
+
+
+
+
+/* Section 1, Herotext and image */
+focustext{
+    width: 10em;
+    text-align: center;
+}
+focustext p{
+    font-family: var(--content_font);
+    
+    font-size: 20pt;
+}
+
+focustext p span{
+    font-family: var(--content_font);
+    font-size: 30pt;
+    font-weight: 400;
+}
+focustext art{
+    font-family: var(--script);
+    font-size: 35pt;
+}
+
+focustext button{
+    border: 1px solid #EEEEEEAA;
+    padding: 0.4em 1.2em;
+    border-radius: 25px;
+    color: var(--grey);
+    transition: all 0.2s ease-out;
+    font-weight: 700;
+
+}
+
+hero img{
+    width: 32em;
+}
