@@ -46,7 +46,9 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(250), nullable=False, unique=True)
     password = db.Column(db.String(250), nullable=False)
 
-db.create_all()
+with app.app_context():
+    db.create_all()
+
 
 @login_manager.user_loader
 def load_user(id):
