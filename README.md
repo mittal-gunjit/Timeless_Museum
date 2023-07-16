@@ -1,2 +1,2 @@
 # Timeless_Museum
-We might nename it to an art gallery. Immortal Art Gallery
+To run this on your own machine clone this repo. Then install the python dependencies using ``` pip install -r requirements.txt ```. Then create a new .env files to store environment variables, api key for segmind, an app secret key and email, password combo for sending emails. Then you can simply type ``` flask run``` in the terminal and the website should be live on your localhost port 5000.
