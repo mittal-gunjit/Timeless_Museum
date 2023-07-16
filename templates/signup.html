@@ -14,13 +14,7 @@
     <heading>
         Create A New Account
     </heading>
-    <form method='post'>
-        <input type="email" id="email" name="email" placeholder="Enter Your Email">
-        <input type="text" id="name" name="name" placeholder="Username">
-        <input type="password" id="pass1" name="pass1" placeholder="Password">
-        <input type="password" id="pass2" name="pass2" placeholder="Confirm Password">
-        <input type="submit" value="Create Account">
-        {% with messages = get_flashed_messages() %}
+    {% with messages = get_flashed_messages() %}
         {% if messages %}
             <ul class="messages">
                 {% for message in messages %}
@@ -29,5 +23,11 @@
             </ul>
         {% endif %}
     {% endwith %}
+    <form method='post'>
+        <input type="email" id="email" name="email" placeholder="Enter Your Email">
+        <input type="text" id="name" name="name" placeholder="Username">
+        <input type="password" id="pass1" name="pass1" placeholder="Password">
+        <input type="password" id="pass2" name="pass2" placeholder="Confirm Password">
+        <input type="submit" value="Create Account">
     </form>
 </body>
