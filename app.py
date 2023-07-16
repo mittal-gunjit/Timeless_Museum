@@ -62,8 +62,11 @@ with app.app_context():
 def load_user(id):
     return User.query.filter_by(id=id).first()
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def main():
+    if request.method == 'POST':
+        flash("Thanks for approaching us, we'll get back to you soon!")
+        return render_template("index.html")
     return render_template("index.html")
 
 @app.route('/login', methods=["GET", "POST"])

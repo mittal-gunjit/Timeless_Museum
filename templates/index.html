@@ -58,11 +58,20 @@
         <heading>
             CONTACT
         </heading>
-        
+        <form method='POST'>
         <input type="email" placeholder="Enter Your Email">
         <textarea id = "suggestion" placeholder="Enter Your Suggestion"></textarea>
         <input type="submit">
-   
+        </form>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="message">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
     </section>
     <hr>
     <section class = 'footer'>
