@@ -23,10 +23,10 @@ def get_image(prompt):
     "prompt": prompt,
     "negative_prompt": "NONE",
     "samples": "1",
-    "scheduler": "PLMS",
-    "num_inference_steps": "20",
-    "guidance_scale": "7.5",
-    "seed": "1024",
+    "scheduler": "DDIM",
+    "num_inference_steps": "40",
+    "guidance_scale": "9",
+    "seed": "1006",
     "img_width":"512",
     "img_height":"512"
     }
@@ -146,12 +146,12 @@ def images(country, era, page):
     painting = data[country][page]['painting']
     artist = data[country][page]['artist']
     prompt = painting + " by " + artist + " in the " + era + " era"
-    if os.path.exists(f'{country}_{era}_{page}.jpg'):
-        return render_template('images.html',image=f'{country}_{era}_{page}.jpg', painting=painting, artist=artist)
+    if os.path.exists(f'static/images/{country}_{era}_{page}.jpg'):
+        return render_template('image.html',path=f'images/{country}_{era}_{page}.jpg', painting=painting, artist=artist)
     else:
         image = get_image(prompt)
-        image.save(f'{country}_{era}_{page}.jpg')
-        return render_template('images.html',image=f'{country}_{era}_{page}.jpg', painting=painting, artist=artist)
+        image.save(f'static/Images/{country}_{era}_{page}.jpg')
+        return render_template('image.html',path=f'images/{country}_{era}_{page}.jpg', painting=painting, artist=artist)
     
 
 @app.route('/logout')

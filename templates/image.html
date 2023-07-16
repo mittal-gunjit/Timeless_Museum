@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Variables.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Styles/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Imperial+Script&family=Rowdies:wght@300;400;700&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/37d6505749.js" crossorigin="anonymous"></script>
+
+
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+
+    body {
+        
+      display: flex;
+      gap: 1em;
+      align-items: center;
+      flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background-color: var(--primarybg);
+    }
+
+    #name {
+        position: absolute;
+        background-color: rgb(255, 255, 255);
+        width: fit-content;
+        opacity: 0;
+        border-radius: 5px;
+        border: 3px solid rgb(245, 128, 128);
+        padding: 0px 5px;
+        font-size: 1.5rem;
+
+    }
+
+    svg path {
+        cursor: pointer;
+    }
+    nav-bar{
+      font-family: var(--heading_font);
+    }
+    user form input[type = 'text']{
+      border: 1px solid white;
+      padding: 0.5em 1em;
+      border-radius: 10px;
+    }
+    user form input[type = 'submit']{
+      background-color: white;
+      padding: 0.5em 1em;
+      color: var(--primarybg);
+      border-radius: 10px;
+      cursor: pointer;
+      border-left: 3px solid white;
+    }
+    header{
+      display: flex;
+      align-items: center;
+      width: 90%;
+      justify-content: space-between;
+    }
+    #allSvg{
+      margin-top: 1em;
+    }
+    #heading{
+      margin-top: 1em;
+    }
+    
+</style>
+  </head>
+  <body id = 'body'>
+    <header>
+        <logo>
+            Timeless Museum
+        </logo>
+        <nav-bar>
+            
+            Welcome Back!
+        </nav-bar>
+
+    </header>
+    <hero>
+    <img src= {{url_for('static', filename=path)}}>
+    </hero>
+    {{painting}} by {{artist}}
+</body>
+</html>
