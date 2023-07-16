@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
-    <link rel="stylesheet" href="../Styles/Variables.css">
-     <link rel="stylesheet" href="../Styles/style.css">
+     <link rel="stylesheet" href="{{ url_for('static', filename='Styles/style.css') }}">
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Imperial+Script&family=Rowdies:wght@300;400;700&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
@@ -39,7 +38,7 @@
             </button>
         </focustext>
         <hero>
-            <img src="../Src/focus.png" alt="">
+            <img src="../static/Src/focus.png" alt="">
         </hero>
     </section>
 
