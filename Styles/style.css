@@ -16,42 +16,62 @@
     color: white;
     user-select: none;
 }
-
+html{
+    zoom: 125%;
+}
 /* Common Elements */
 heading{
     font-family: var(--heading_font);
     font-size: 20pt;
+}
+hr{
+    border: solid 1px rgba(255, 255, 255, 0.274);
+    
 }
 body{
     background-color: var(--primarybg);
     
 }
 header{
-    height: 5em;
-    
+    display: flex;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(50px);
+    padding: 1vw 4vw;
+    height: 2em;
+    align-items: center;
+    justify-content: space-between;
 }
 logo{
     font-family: var(--heading_font);
     font-size: 18pt;
     color: var(--white)
     }
-nav-bar a{
-    font: var(--content_font);
-    font-size: 8pt;
-    font-weight: 400;
-    color: var(--grey);
+nav-bar button{
+    
     padding: 8px;
 
     transition: all 0.2s ease-out;
 }
+nav-bar a{
+    font: var(--content_font);
+    font-size: 10pt;
+    font-weight: 400;
+    color: var(--grey);
+    transition: all 0.4s ease-out;
+
+}
 nav-bar a:hover{
     color: var(--white);
+}
+nav-bar button:hover{
+  
     border-bottom: 1px solid #EEEEEEAA;
     font-weight: 500;
     
     border-radius: 10px;
 }
-user a{
+user button{
     border: 1px solid #EEEEEEAA;
     padding: 0.4em 1.2em;
     border-radius: 25px;
@@ -61,7 +81,7 @@ user a{
 
 
 }
-user a:hover:hover{
+user button:hover:hover{
     background-color: var(--white);
     color: var(--primarybg);
     
@@ -74,8 +94,15 @@ user button:active:active{
 
 
 /* Section 1, Herotext and image */
+.hero{
+    margin-top: 2.5em;
+    display: flex;
+    align-items: start;
+    justify-content: space-around;
+}
 focustext{
-    width: 10em;
+    margin-top: 2em;
+    width: 25em;
     text-align: center;
 }
 focustext p{
@@ -105,5 +132,83 @@ focustext button{
 }
 
 hero img{
-    width: 32em;
+    width: max(30vw,20em);
+}
+/* About Section */
+.about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+
+    margin-top: 3em;
+}
+content{
+    display: flex;
+    width: auto;
+    gap: 1.5em;
+    justify-content: space-evenly;
+}
+content img{
+    background-image: url(../Src/MonaLisa\(old\).png);
+    height: max(15vw,10em);
+    width: max(15vw,10em);
+    background-size: contain;
+
+    border-radius: 10%;
+    border: 2px solid rgb(64, 40, 12);
+    border-style: inset;
+
+    transition: all 1s ease-in-out;
+
+
+}
+content img:hover{
+    background-image: url(../Src/MonaLisa\(new\).png);
+    border-style:outset;
+    border-color: rgb(39, 145, 220);
+
+}
+content text{
+    width: 30vw;
+    text-align: justify; 
+    font-family: var(--content_font);
+    font-size: 10pt;
+    font-weight: 300;
+    color: var(--grey);
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    margin-top: 3em;
+}
+.contact input,.contact textarea{
+    font-family: var(--content_font);
+
+    padding: 0.5em 2em;
+    height: 2em;
+    width: 40em;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+#suggestion{
+    height: 10em;
+    resize: none;
+}
+#suggestion::placeholder{
+    text-align: baseline;
+}
+.footer{
+    margin-top: 3em;
+    text-align: center;
+    font-family: var(--heading_font);
+    font-weight: 300;
+    height: 7em;
+}
+.footer span{
+    font-family: var(--script);
 }
