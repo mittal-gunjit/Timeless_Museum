@@ -185,6 +185,13 @@ content text{
     gap: 1em;
     margin-top: 3em;
 }
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
 .contact input,.contact textarea{
     font-family: var(--content_font);
 

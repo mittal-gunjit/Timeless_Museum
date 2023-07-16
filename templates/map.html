@@ -58,6 +58,12 @@
           padding: 0.5em 1em;
           border-radius: 10px;
         }
+        user form select{
+          border: 1px solid white;
+          padding: 0.5em 1em;
+          border-radius: 10px;
+          margin-right: 0.25em;
+        }
         user form input[type = 'submit']{
           background-color: white;
           padding: 0.5em 1em;
@@ -83,16 +89,21 @@
       </head>
       <body id = 'body'>
         <header>
-            <logo>
+            <logo><a href="{{url_for("main")}}">
                 Timeless Museum
-            </logo>
+            </logo></a>
             <nav-bar>
                 
                 Welcome Back! {{name}}
             </nav-bar>
             <user>
                 <form method='post'>
-                <input type="text" id = "country_name"placeholder="Enter Country Name Here">
+                <input type="text" id = "country_name" name="country_name" placeholder="Enter Country Name Here">
+                <select id="era" name="era", placeholder="Select an era">
+                    <option value="Ancient">Ancient era</option>
+                    <option value="Victor">Victorian era</option>
+                    <option value="Post-clas">Post - Classical Era</option>
+                    <option value="modern">Modern Era</option>
                 <input type="submit" value="Explore">
               </form>
               </user>
@@ -1638,21 +1649,15 @@
               <circle cx="1798.2" cy="719.3" id="2">
               </circle>
           </svg>
-  
-          <heading>
-            Choose A Time
-          </heading>
-
-          <div class = "eras">
-            <button value = "Ancient Era"></button>
-            <button>Victorian Era</button>
-            <button>Post - Classical Era</button>
-            <button>Modern Era</button>
-          </div>
-        
-
-        
-        
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+              <ul class="messages">
+                  {% for message in messages %}
+                      <li class="message">{{ message }}</li>
+                  {% endfor %}
+              </ul>
+          {% endif %}
+      {% endwith %}
     </body>
     
     <script>

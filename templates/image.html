@@ -81,19 +81,26 @@
 </style>
   </head>
   <body id = 'body'>
-    <header>
+    <header><a href="{{url_for("main")}}">
         <logo>
             Timeless Museum
-        </logo>
+        </logo></a>
         <nav-bar>
-            
-            Welcome Back!
+            <a href="{{url_for('homepage')}}">Go to Map</a>
         </nav-bar>
 
     </header>
+    {{country}} in {{era_name}}
     <hero>
     <img src= {{url_for('static', filename=path)}}>
     </hero>
     {{painting}} by {{artist}}
+    {% if page>0 %}
+    <button><a href="{{url_for('images', country=country,era=era, page = page-1 )}}"> Previous</a></button>
+    {% endif %}
+    {{page}}
+    {% if page<4 %}
+    <button><a href="{{url_for('images', country=country,era=era, page = page+1 )}}">Next</a></button>
+    {% endif %}
 </body>
 </html>

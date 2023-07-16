@@ -17,6 +17,7 @@ my_email = os.getenv("MY_EMAIL")
 email_password = os.getenv("MY_PASSWORD")
 f = open('data.json')
 data = json.load(f)
+era_dict = {'Ancient':"Ancient era", 'Victor':"Victorian era",'modern':"Modern era", 'Post-clas':"Post-Classical Era"}
 
 def get_image(prompt):
     data = {
@@ -136,22 +137,26 @@ def register():
 @app.route('/homepage', methods = ['GET','POST'])
 def homepage():
     if request.method == 'POST':
-        country = request.form['country']
+        country = request.form['country_name']
         era = request.form['era']
         return redirect(url_for('images', country=country, era=era, page=0))
     return render_template('map.html', name=current_user.name)
 
 @app.route('/images/<country>/<era>/<int:page>', methods = ['GET','POST'])
 def images(country, era, page):
+    if country not in data:
+        print(country)
+        flash('This country is not yet supported, please try again.')
+        return redirect(url_for('homepage'))
     painting = data[country][page]['painting']
     artist = data[country][page]['artist']
-    prompt = painting + " by " + artist + " in the " + era + " era"
+    prompt = painting + " by " + artist + " in the " + era_dict[era] + " era"
     if os.path.exists(f'static/images/{country}_{era}_{page}.jpg'):
-        return render_template('image.html',path=f'images/{country}_{era}_{page}.jpg', painting=painting, artist=artist)
+        return render_template('image.html',path=f'images/{country}_{era}_{page}.jpg', painting=painting, artist=artist, country=country, era=era, page=page, era_name = era_dict[era])
     else:
         image = get_image(prompt)
         image.save(f'static/Images/{country}_{era}_{page}.jpg')
-        return render_template('image.html',path=f'images/{country}_{era}_{page}.jpg', painting=painting, artist=artist)
+        return render_template('image.html',path=f'images/{country}_{era}_{page}.jpg', painting=painting, artist=artist, country=country, era=era, page=page, era_name = era_dict[era])
     
 
 @app.route('/logout')
