@@ -81,6 +81,8 @@ def register():
             login_user(new_user)
             return redirect(url_for('main'))
     return render_template("signup.html")
-
+@app.route('/homepage', methods = ['GET','POST'])
+def homepage():
+    return render_template('map.html')
 if __name__ == "__main__":
     app.run(debug=True)
