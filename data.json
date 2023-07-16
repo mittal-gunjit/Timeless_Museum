@@ -1,26 +1,78 @@
 {
-    "Louvre": [
-      "Mona Lisa by Leonardo da Vinci",
-      "Venus de Milo (Aphrodite of Milos)",
-      "Winged Victory of Samothrace",
-      "The Coronation of Napoleon by Jacques-Louis David",
-      "The Raft of the Medusa by Théodore Géricault",
-      "Liberty Leading the People by Eugène Delacroix",
-      "The Wedding Feast at Cana by Paolo Veronese",
-      "The Virgin and Child with Saint Anne by Leonardo da Vinci",
-      "The Death of Sardanapalus by Eugène Delacroix",
-      "The Code of Hammurabi (law code stele)"
+    "United States":[
+        {
+            "painting":"Starry Night",
+            "artist":"Vincent van Gogh"
+        },
+        {
+            "painting":"American Gothic",
+            "artist":"Grant Wood"
+        },{
+            "painting":"Campbell's Soup Cans",
+            "artist":"Andy Warhol"
+        },{
+            "painting":"Nighthawks",
+            "artist":"Edward Hopper"
+        },{
+            "painting":"Whistler's Mother",
+            "artist":"James McNeill Whistler"
+        }
     ],
-    "Vatican Museums": [
-        "Transfiguration by Raphael",
-        "The Creation of Adam by Michelangelo",
-        "The Entombment of Christ by Caravaggio",
-        "Saint Jerome in the Wilderness by Leonardo da Vinci",
-        "The School of Athens by Raphael",
-        "The Last Judgement by Michelangelo",
-        "Stefaneschi Triptych by Giotto",
-        "Madonna with Child and Saints by Titian",
-        "The Vision of St Helena by Paolo Veronese",
-        "Pietà by Vincent van Gogh"
+    "Italy":[
+        {
+            "painting":"The Last Supper",
+            "artist":"Leonardo da Vinci"
+        },
+        {
+            "painting":"The Birth of Venus",
+            "artist":"Sandro Botticelli"
+        },{
+            "painting":"The Creation of Adam",
+            "artist":"Michelangelo"
+        },{
+            "painting":"Mona Lisa",
+            "artist":"Leonardo da Vinci"
+        },{
+            "painting":"The School of Athens",
+            "artist":"Raphael"
+        }
+    ],
+    "France":[
+        {
+            "painting":"Mona Lisa",
+            "artist":"Leonardo da Vinci"
+        },
+        {
+            "painting":"Impression, Sunrise",
+            "artist":"Claude Monet"
+        },{
+            "painting":"Les Demoiselles d'Avignon",
+            "artist":"Pablo Picasso"
+        },{
+            "painting":"Liberty Leading the People",
+            "artist":"Eugène Delacroix"
+        },{
+            "painting":"Water Lilies",
+            "artist":"Claude Monet"
+        }
+    ],
+    "Spain":[
+        {
+            "painting":"Guernica",
+            "artist":"Pablo Picasso"
+        },
+        {
+            "painting":"Las Meninas",
+            "artist":"Diego Velázquez"
+        },{
+            "painting":"The Persistence of Memory",
+            "artist":"Salvador Dalí"
+        },{
+            "painting":"Saturn Devouring His Son",
+            "artist":"Francisco Goya"
+        },{
+            "painting":"The Third of May 1808",
+            "artist":"Francisco Goya"
+        }
     ]
   }
