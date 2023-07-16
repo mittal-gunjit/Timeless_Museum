@@ -1,4 +1,4 @@
-import requests, string, random
+import requests, string, random, json
 from PIL import Image
 from io import BytesIO
 from flask import Flask, render_template, request, redirect, url_for, flash
@@ -15,6 +15,8 @@ url = "https://api.segmind.com/v1/kandinsky2.1-txt2img"
 api_key = os.getenv("API_KEY")
 my_email = os.getenv("MY_EMAIL")
 email_password = os.getenv("MY_PASSWORD")
+f = open('data.json')
+data = json.load(f)
 
 def get_image(prompt):
     data = {
@@ -29,10 +31,9 @@ def get_image(prompt):
     "img_height":"512"
     }
 
-    # response = requests.post(url, json=data, headers={"x-api-key": f"{api_key}"})
-    # print(response)
-    # image = Image.open(BytesIO(response.content))
-    # image.save('new_image.jpg')
+    response = requests.post(url, json=data, headers={"x-api-key": f"{api_key}"})
+    image = Image.open(BytesIO(response.content))
+    return image
 
 def generate_random_password(length):
     characters = string.ascii_letters + string.digits + "!#$%&*+?@^"*2
@@ -104,7 +105,7 @@ def login():
                 return redirect(url_for('login'))
             else:
                 login_user(user)
-                return redirect(url_for('main'))
+                return redirect(url_for('homepage'))
     return render_template("login.html")
 
 @app.route('/register', methods=["GET", "POST"])
@@ -129,10 +130,34 @@ def register():
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user)
-            return redirect(url_for('main'))
+            return redirect(url_for('homepage'))
     return render_template("signup.html")
+
 @app.route('/homepage', methods = ['GET','POST'])
 def homepage():
-    return render_template('map.html')
+    if request.method == 'POST':
+        country = request.form['country']
+        era = request.form['era']
+        return redirect(url_for('images', country=country, era=era, page=0))
+    return render_template('map.html', name=current_user.name)
+
+@app.route('/images/<country>/<era>/<int:page>', methods = ['GET','POST'])
+def images(country, era, page):
+    painting = data[country][page]['painting']
+    artist = data[country][page]['artist']
+    prompt = painting + " by " + artist + " in the " + era + " era"
+    if os.path.exists(f'{country}_{era}_{page}.jpg'):
+        return render_template('images.html',image=f'{country}_{era}_{page}.jpg', painting=painting, artist=artist)
+    else:
+        image = get_image(prompt)
+        image.save(f'{country}_{era}_{page}.jpg')
+        return render_template('images.html',image=f'{country}_{era}_{page}.jpg', painting=painting, artist=artist)
+    
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('main'))
+
 if __name__ == "__main__":
     app.run(debug=True)
