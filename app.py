@@ -1,7 +1,7 @@
 import requests
 from PIL import Image
 from io import BytesIO
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
@@ -35,6 +35,7 @@ def get_image(prompt):
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL",  "sqlite:///blog.db")
+app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -64,6 +65,21 @@ def login():
 
 @app.route('/register', methods=["GET", "POST"])
 def register():
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        pass1 = request.form['pass1']
+        pass2 = request.form['pass2']
+        if pass1 != pass2:
+            flash("Passwords don't match")
+            return redirect(url_for('register'))
+        else:
+            hashed_pass = generate_password_hash(pass1, method='pbkdf2:sha256', salt_length=8)
+            new_user = User(name=name, email=email, password=hashed_pass)
+            db.session.add(new_user)
+            db.session.commit()
+            login_user(new_user)
+            return redirect(url_for('main'))
     return render_template("signup.html")
 
 if __name__ == "__main__":

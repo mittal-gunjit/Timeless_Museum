@@ -1,0 +1,26 @@
+{
+    "Louvre": [
+      "Mona Lisa by Leonardo da Vinci",
+      "Venus de Milo (Aphrodite of Milos)",
+      "Winged Victory of Samothrace",
+      "The Coronation of Napoleon by Jacques-Louis David",
+      "The Raft of the Medusa by Théodore Géricault",
+      "Liberty Leading the People by Eugène Delacroix",
+      "The Wedding Feast at Cana by Paolo Veronese",
+      "The Virgin and Child with Saint Anne by Leonardo da Vinci",
+      "The Death of Sardanapalus by Eugène Delacroix",
+      "The Code of Hammurabi (law code stele)"
+    ],
+    "Vatican Museums": [
+        "Transfiguration by Raphael",
+        "The Creation of Adam by Michelangelo",
+        "The Entombment of Christ by Caravaggio",
+        "Saint Jerome in the Wilderness by Leonardo da Vinci",
+        "The School of Athens by Raphael",
+        "The Last Judgement by Michelangelo",
+        "Stefaneschi Triptych by Giotto",
+        "Madonna with Child and Saints by Titian",
+        "The Vision of St Helena by Paolo Veronese",
+        "Pietà by Vincent van Gogh"
+    ]
+  }
